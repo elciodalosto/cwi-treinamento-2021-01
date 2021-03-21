@@ -28,6 +28,10 @@ public class Browser {
                 // maximiza o browser
                 driver.manage().window().maximize();
 
+                // tempo de espera para evitar que o teste passe e acuse falha antes do elemento testado ser totalmente carregado
+                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+                // tempo de espera até finalizar a página
                 driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
             } catch (MalformedURLException e) {
