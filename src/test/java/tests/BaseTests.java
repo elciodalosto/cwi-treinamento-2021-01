@@ -16,6 +16,7 @@ public class BaseTests {
     // fecha o navegador ao fim do teste
     @After
     public void tearDown(){
+        Browser.print();
         Browser.close();
     }
 
