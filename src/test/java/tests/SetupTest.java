@@ -61,14 +61,67 @@ public class SetupTest extends BaseTests {
     @Test
     @Story("Realizar o registro de novo Usuário")
     public void testUserRegister(){
-        HomePage home = new HomePage();
-        MyAccountPage account = new MyAccountPage();
-        home.clickBtnLogin();
-        account.fillEmailCreateAccountField();
-        account.clickBtnCreateAccount();
 
-        // CONTINUAR A MONTAGEM DO MÉTODO...
+        HomePage home = new HomePage();
+        CreateAccountPage account = new CreateAccountPage();
+
+        home.clickBtnLogin(); // clica no botão Login da página Home e vai para a página de Autenticação
+        System.out.println("clicou sobre o botão login");
+
+        // validou se o subtítulo da página contém o texto "AUTHENTICATION"
+        assertTrue(account.isAuthenticationPage("AUTHENTICATION"));
+        System.out.println("passou pela página: "+account.getAuthenticationPageName());
+
+
+        // preencher o campo de e-mail
+        account.fillEmailCreate();
+        System.out.println("preencheu o campo de e-mail: fakemail@fakemail.com");
+
+        // clicar no botão "Create an account"
+        account.clickBtnCreateAccount();
+        System.out.println("clicou no botão Create an account");
+
+        // validou se o subtítulo da página contém o texto "YOUR PERSONAL INFORMATION"
+        assertTrue(account.isCreateAccountPage("YOUR PERSONAL INFORMATION"));
+        System.out.println("passou pela página: "+account.getCreateAccountPageName());
+
+
         // PREENCHER FORMULARIO E REGISTRAR
+
+        account.fillCreateAccountForm(); // EXECUTA VÁRIOS DOS MÉTODOS DA CLASSE CreateAccountPage
+        System.out.println("Preencheu o formulário de cadastro e Enviou");
+
+//        account.clickRadioBtn(1); // Para testes, 1=Masc, 2=Fem
+//        System.out.println("checou/clicou no botão rádio do gênero Masculino");
+
+//        account.fillFirstName();
+//        System.out.println("Preencheu o Primeiro Nome");
+//        account.fillLastName();
+//        System.out.println("Preencheu o Sobrenome");
+//        account.fillPasswd();
+//        System.out.println("Preencheu a senha");
+
+//        account.fillBirthDate();
+//        System.out.println("Preencheu a data de nascimento");
+
+//        account.checkReceiveNewsletter();
+//        System.out.println("Checou/Aceitou a Newsletter");
+
+//        account.checkReceiveOffers();
+//        System.out.println("Checou/Aceitou receber ofertas");
+
+//        account.fillFirstNameForAddress();
+//        account.fillLastNameForAddress();
+//        account.fillCompanyName();
+//        account.fillAddress();
+//        account.fillCity();
+//        account.fillState();
+//        account.fillPostalCode();
+//        account.fillCountry();
+//        account.fillAdditionalInfo();
+//        account.fillHomePhone();
+//        account.fillMobilePhone();
+//        account.fillAliasForAddress();
 
     }
 
